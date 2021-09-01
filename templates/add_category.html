@@ -1,0 +1,44 @@
+{% extends 'admin_navigation.html' %}
+{% load static %}
+{% block body %}
+
+
+{% ifequal error "no" %}
+<script>
+    alert("Category Uploaded Successful");
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Something went wrong, Try Again...");
+</script>
+{% endifequal %}
+
+
+<div class="container mt-5">
+    <div class="row">
+        
+        <div class="col-sm-12">
+        
+            <h2 class="text-center">Add Product</h2>
+            
+            <hr>
+            
+            <form method="POST" name="addcategory" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                <label>Category Name</label>
+                <input type="text" class="form-control" placeholder="Enter CategoryName" name="name" required>
+                <label>Category Image</label>
+                <input type="file" class="form-control"  name="image" required>
+
+                <input type="submit" class="btn btn-success mt-2" value="SUBMIT">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{%  include 'footer.html' %}
+{% endblock %}

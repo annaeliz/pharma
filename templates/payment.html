@@ -1,0 +1,68 @@
+{% extends 'user_navigation.html' %}
+{% load static %}
+{% block body %}
+<style>
+    
+.icon {
+  padding: 4px;
+  background: gray;
+  color: black;
+  min-width: 50px;
+  text-align: center;
+}
+
+
+.panel-title {display: inline;font-weight: bold;}
+
+</style>
+<br>
+<marquee scrolldelay="50">ITS FAKE PAYMENT PAGE. WE DONOT STORE YOUR DATA, ITS JUST FOR DEMO</marquee>
+
+<br><br>
+
+    <div class="container col-sm-4"  style="background-color: whitesmoke;">
+        <div class="row">
+        <div class="col-xs-12 "style="height:450px; width:600px;">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title  ">Payment Details</h3>
+                </div>
+                <br/><br>
+                <div class="panel-body ">
+                    <form role="form" method="POST">
+                        {% csrf_token %}
+                    <div class="form-group">
+                        <label for="cardNumber">CARD NUMBER</label>
+                        <div class="input-group ">
+                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"required autofocus />
+                            <span class="input-group-addon"><i class="fa fa-lock icon" style="font-size:30px"></i></span>
+                        </div>   
+                    </div>
+                    <div class="row col-sm-12 ">
+                            <div class="form-group">
+                                <label for="expityMonth">EXPIRY DATE</label>
+                                    <input type="text" class="form-control col-sm-5 "   id="expityMonth" placeholder="MM" required />
+                                     <input type="text" class="form-control col-sm-5" style="padding-left: 10px;" id="expityYear" placeholder="YY" required /> 
+                      </div>
+                            <div class="form-group  pull-right">    
+                                <label for="cvCode">CV CODE</label>
+                               <input type="password" class="form-control col-sm-5" id="cvCode" placeholder="CV" required />
+                            
+                            </div>
+                    </div>
+                    </form>
+                    <ul class="nav nav-pills nav-fill ">
+                        <li class="active col-sm-12"><a class="nav-item nav-link   active" href=""> FINAL PAYMENT<span class="badge  bg-light text-primary" style="margin-left: 10px; font-size: 15px;">{{total}}</span></a>
+                        </li>
+                    </ul>
+                    <br/>
+                    <div class ="col-sm-12">
+                    <a href="{% url 'payment_success'  %}" class="btn btn-success btn-lg btn-block"  role="button"><input type="submit" class="btn btn-success  btn-block" value="Pay"></a>
+                </div>
+                </div>
+            </div>  
+        </div>
+</div>
+</div>
+{%  include 'footer.html' %}
+{% endblock %}

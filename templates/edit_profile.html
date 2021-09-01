@@ -1,0 +1,109 @@
+{% extends 'user_navigation.html' %}
+{% load static %}
+{% block body %}
+<head>
+  <style media="screen">
+    body {
+      background-color:#ffffff;
+    }
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+
+    .menu{
+      top: 50px;
+    }
+  </style>
+
+
+</head>
+<br><br><br><br><br><br>
+
+{% if error %}
+<script>
+    alert("Proile Updated Successful");
+    window.location="{% url 'profile' %}";
+</script>
+{% endif %}
+
+<div class="container mt-5">
+    <h2 class="text-center">Edit Profile</h2>
+    <hr>
+    <div class="row">
+        <div class="col-sm-12">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-12" >
+                    <label> FirstName</label>
+                    <input type="text" class="form-control" value="{{request.user.first_name}}" name="fname">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12" >
+                    <label>Price</label>
+                    <input type="text" class="form-control" value="{{request.user.last_name}}" name="lname">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12" >
+                    <label>email</label>
+                    <input type="email" class="form-control" value="{{request.user.username}}" name="email">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12" >
+                    <label>Address Line1</label>
+                    <input type="text" class="form-control" value="{{customer.aline1}}" name="aline1">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12" >
+                    <label>Address Line2</label>
+                    <input type="text" class="form-control" value="{{customer.aline2}}" name="aline2">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12" >
+                    <label>Mobile</label>
+                    <input type="text" class="form-control" value="{{customer.contact}}" name="mobile">
+                </div>
+            </div>
+            <input type="submit" value="UPDATE" class="btn btn-info mt-3">
+            </form>
+        </div>
+    </div>
+</div>
+
+{%  include 'footer.html' %}
+{% endblock %}

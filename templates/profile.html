@@ -1,0 +1,70 @@
+{% extends 'user_navigation.html' %}
+{% load static %}
+{% block body %}
+
+
+<style media="screen">
+  body {
+   background-image: url("{% static './images/img61.jpg' %}") ;
+  }
+  .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 5px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left:-75px;
+  }
+
+  .button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  }
+
+  .button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  }
+
+  .button:hover span {
+  padding-right: 25px;
+  }
+
+  .button:hover span:after {
+  opacity: 1;
+  right: 0;
+  }
+
+
+</style>
+<br><br><br>
+<div style="padding-left:450px;" class="container">
+  
+        <div class="col-sm-4 col-md-4">
+            <blockquote>
+                <h3 style="text-transform:capitalize">{{request.user.first_name}} {{request.user.last_name}}</h3> <h6>{{request.user}}</h6> <small><cite title="Source Title">{{customer.aline1}} {{customer.aline2}} <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+            </blockquote>
+            <p> <i class="fa fa-fw fa-phone"></i> {{customer.contact}}
+            </p>
+        </div>
+</div>
+<br>
+<div style="text-align: center;">
+  <a href="/edit_profile"><button class="button btn-small" ><span>Edit Profile </span></button></a>
+</div>
+<br><br><br><br><br><br>
+
+{%  include 'footer.html' %}
+{% endblock %}

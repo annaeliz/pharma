@@ -1,0 +1,75 @@
+{% extends 'admin_navigation.html' %}
+{% load static %}
+{% block body %}
+
+{% if error %}
+<script>
+    alert("Product Updated Successful");
+    window.location="{% url 'view_product' %}";
+</script>
+{% endif %}
+
+<div class="container mt-5">
+    <h2 class="text-center">Edit Products</h2>
+    <hr>
+    <div class="row">
+        <div class="col-sm-12">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-12" >
+                    <label>Product Name</label>
+                    <input type="text" class="form-control" value="{{data.productname}}" name="name">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6" >
+                    <label>Category</label>
+                    <select class="form-control"name="cat">
+                        <option value="Covid Essentials">Covid Essentials</option>
+                        <option value="Medicines">Medicines</option>
+                        <option value="Nutrition And Supplements">Nutrition And Supplements</option>
+                        <option value="Devices">Devices</option>
+                        <option value="Mom & Baby">Mom & Baby Care</option>
+                        <option value="Personal Care">Personal Care</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6 mt-2">
+                    <br>
+                    <input type="text" class="form-control" value="{{data.category}}" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12" >
+                    <label>Price</label>
+                    <input type="text" class="form-control" value="{{data.productprice}}" name="price">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12" >
+                    <label>Description</label>
+                    <input type="text" class="form-control" value="{{data.description}}" name="des">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12" >
+                    <label>Brand</label>
+                    <input type="text" class="form-control" value="{{data.brand}}" name="brand">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12" >
+                    <label>Product Image</label>
+                    <input type="file" class="form-control" value="{{data.productimage}}" name="image">
+                </div>
+            </div>
+            <input type="submit" value="UPDATE" class="btn btn-info mt-3">
+            </form>
+        </div>
+    </div>
+</div>
+
+{%  include 'footer.html' %}
+{% endblock %}
+
+

@@ -1,0 +1,74 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+<script>
+    function checkpass(){
+        if (document.usersignup.pwd.value!=document.usersignup.cpwd.value)
+        {
+            alert('Password does not match');
+            document.usersignup.cpwd.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+
+
+{% ifequal error "no" %}
+<script>
+    alert("SignUp Successful");
+    window.location=("{% url 'userlogin' %}");
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Something went wrong, Try Again...");
+</script>
+{% endifequal %}
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2 class="text-center">EXISTING CUSTOMER</h2>
+            <hr>
+            <p>By Creating an account with our Website, U will be able to buying Medicines</p>
+            <a href="{% url 'userlogin' %}" class= "btn btn-info text-white mt-5" style="margin-left: 190px;">LOGIN IN</a>
+            <img src="{% static './images/img56.jpg' %}" class="img-thumbnail my-2" alt="">     
+        </div>
+        <div class="col-sm-6">
+        
+            <h2 class="text-center">REGISTER WITH US</h2>
+            
+            <hr>
+            <P>If you have not an account with us,  Please Signup...</P>
+            <form method="POST" name="usersignup" class="container" onsubmit="return checkpass()">
+                {% csrf_token %}
+                <div class="form-row">
+                <label>First Name</label>
+                <input type="text" class="form-control" placeholder="Enter FirstName" name="firstname" required>
+                <label>Last Name</label>
+                <input type="text" class="form-control" placeholder="Enter LastName" name="lastname" required>
+                <label>Contact</label>
+                <input type="text" class="form-control" placeholder="Enter Contact Number " name="contact" required>
+                <label>Email ID</label>
+                <input type="email" class="form-control" placeholder="Enter Email Address" name="emailid" required>
+                <label>Password</label>
+                <input type="password" class="form-control" placeholder="Enter Password" name="pwd" required>
+                <label>Confirm Password</label>
+                <input type="password" class="form-control" placeholder="Enter Password" name="cpwd" required>
+                <label>Address Line1</label>
+                <input type="text" class="form-control" placeholder="Enter House Name/No" name="aline2" required>
+                <label>Address Line2</label>
+                <input type="text" class="form-control" placeholder="Enter Street/Pincode" name="aline3" required>
+                <input type="submit" class="btn btn-success mt-2" value="SUBMIT">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{%  include 'footer.html' %}
+
+{% endblock %}

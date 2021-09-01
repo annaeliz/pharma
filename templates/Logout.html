@@ -1,0 +1,17 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+<div class="content">
+    <div class="text">
+<br><br><br>
+    <h3 class="text-success text-center" style="font-size: 45px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">You are logged out. </h3>
+    <p class="text-center"><a href="{% url 'home' %}">Click here</a>  to home page</p>
+
+    </div>
+</div>
+<br>
+<br><br><br>
+<br>
+{%  include 'footer.html' %}
+{% endblock %}

@@ -1,0 +1,79 @@
+
+.header{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.navbar{
+    height: 50px;
+}
+
+  .carousel-caption {
+    position: absolute;
+    top:20%;
+    left: 1.5%;
+    right: auto;
+    width: 100%;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.carousel-caption h1 {
+    font-size: 59px;
+    font-weight: bold;
+}
+
+.star-rating li {
+	padding: 0;
+}
+.star-rating i {
+	font-size: 14px;
+	color: #ffc000;
+
+}
+.img-responsive:hover{
+    transform: translateY(-10px);
+}
+.footer {
+	background: #f2f2f2;
+}
+.footer-title, .footer h6 {
+	margin-top: 30px;
+	color: #000;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-left:40px;
+
+}
+.footer-logo a img {
+	transition: all 0.4s ease-in-out 0s;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	-o-transition: all 0.4s ease-in-out 0s;
+}
+.footer-logo a:hover img {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	opacity: 0.3;
+}
+.social_icon li {
+	display: inline-block;
+	height: 25px;
+	width: 25px;
+}
+.social_icon ul li i.fa {
+	background-color: transparent;
+	font-size: 14px;
+	transition: all 0.4s ease-in-out 0s;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	-o-transition: all 0.4s ease-in-out 0s;
+}
+.social_icon ul li a i.fa:hover {
+	color: #000;
+}
+.footer-bottom {
+	background: #000;
+	color: #b2b2b2;
+}
+.payment-icon li {
+	display: inline-block;
+	font-size: 22px;
+}

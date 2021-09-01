@@ -1,0 +1,70 @@
+{% extends 'admin_navigation.html' %}
+{% load static %}
+{% block body %}
+<head>
+<script>
+$(document).ready(function() {
+  $('#example').DataTable( {
+      "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+  } );
+} );
+</script>
+<style>
+h6 {
+  text-align: center;
+}
+
+</style>
+</head>
+<div class="container col-md-10 ">
+    <div class="panel panel-primary">
+      
+        <h6 class="panel-title">Total Orders</h6>
+     
+      <table class="table table-hover"  id="example">
+        <thead>
+          <tr class="bg-primary">
+            <th>Username</th>
+            <th>Mobile</th>
+            <th>Shipment Address</th>
+            <th>Product Name</th>
+            <th>Product Picture</th>
+            <th>Status</th>
+            <th>Update Status</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+
+        {% for product,signup,order in data %}
+        <tr>
+       
+  
+          
+          {% for p in signup %}
+            
+          <td>{{order.email}}</td>
+          <td>{{order.mobile}}</td>
+          <td>{{order.address}}</td>
+          
+        {% endfor %}
+        {% for p in product %}
+          <td> {{p.productname}}</td>
+          <td> <img src="{{p.productimage.url}}" alt="Profile Pic" height="40px" width="40px" /></td>
+          <td>{{order.status}}</td>
+          <td><a href ="{% url 'update_orders' order.id  %}"class="btn btn-warning btn-sm">Update</a></td>
+ 
+          <td><a href ="{% url 'delete_order' order.id  %}"class="btn btn-danger btn-sm" onclick="return confirm('Are You Sure?')">Delete</a></td>
+  
+  
+  
+        </tr>
+        
+     
+        {% endfor %}
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <br><br><br>
+{%  include 'footer.html' %}
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'user_navigation.html' %}
+{% load static %}
+{% block body %}
+
+<head>
+<script>
+  
+</script>
+<style media="screen">
+  .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+table {
+  border: 1px solid  #008CBA ;
+}
+</style>
+
+</head>
+
+<br><br><br>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 style="text-align:center;height: 40px;" class="panel-title ">My Cart</h3>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead class="bg-primary">
+        <tr>
+          <th>Sl no</th>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Remove From Cart</th>
+
+        </tr>
+      </thead>
+      {% for p in product %}
+  {% if p %}
+
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td> {{p.productname}}</td>
+        <td> <img src="{{p.productimage.url}}" alt="Profile Pic" height="40px" width="40px" /></td>
+        <td>{{p.productprice}}</td>
+
+        <td><a class="btn btn-danger btn-xs "onclick="return confirm('Are You Sure?')"href=" {% url 'remove_from_cart' p.id  %}"><span class="fa fa-trash-o"></span></a></td>
+
+      </tr>
+      {%else%}
+      <br><br><br>
+      <h1>no products</h1>
+      {% endif %}
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<br><br><br>
+<div style="text-align: center;">
+  <button class="button button2">Total {{total}}</button>
+  <a href="{% url 'customer_address'   %}"><button class="button" ><span>Purchase </span></button></a>
+</div>
+
+<br><br><br><br><br>
+{%  include 'footer.html' %}
+{% endblock %}
+

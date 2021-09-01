@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PharmaCare</title>    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet " href="{% static 'css/mystyle.css' %}"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet " href=" https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css/">
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+        <link rel="stylesheet " href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
+        <link rel="stylesheet " href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css"/>
+    </head>
+    <body>
+		
+            <h3 class="header" style="padding-left:20px"><b><span style="color:black">Pharma</span><span style="color:red">Care</span></b></h3>
+            <h5 style="padding-left: 20px;padding-bottom: 5px;">BEST ONLINE STORE</h5>
+           <nav class="navbar navbar-expand-lg" style="background-color: black;">
+               
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" >
+                        <a href="{% url 'admin_home' %}" class="nav-link text-light"><strong><i class="fa fa-fw fa-home"></i>Home</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'view_users' %}" class="nav-link text-light"><strong><i class='fa fa-fw fa-users'></i>View Users</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'view_booking' %}" class="nav-link text-light"><strong><i class="fa fa-fw fa-shopping-basket"></i>View Booking</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'view_feedback' %}" class="nav-link text-light"><strong><i class="fa fa-fw fa-star checked"></i>View Feedback</strong></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle text-light" data-toggle="dropdown"><strong><i class="fa fa-fw fa-product-hunt"></i>Products</strong></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'addproduct' %}">Add Products</a>
+                        <a class="dropdown-item" href="{% url 'view_product' %}">View Products</a>
+                    </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle text-light" data-toggle="dropdown"><strong><i class="fa fa-fw fa-align-justify"></i>Categories</strong></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{% url 'add_category' %}">Add Categories</a>
+                            <a class="dropdown-item" href="{% url 'view_category' %}">View Categories</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'Logout' %}" class="nav-link text-light"><strong><i class="fa fa-fw fa-sign-out"></i>Logout</strong></a>
+                    </li>
+					
+                </ul>
+            </nav>
+        </body>
+</html>
+{% block body %}
+
+{% endblock %}

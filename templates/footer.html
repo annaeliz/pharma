@@ -1,0 +1,83 @@
+{% load static %}
+<style>
+  footer {
+padding: 0px 0px 0px 0px;
+margin: 0px;
+
+}
+</style>
+<body>
+<footer  style="width: 100%;">
+<div class="footer mt-4 ">
+    <div class="row col-md-12">
+      <div class="col-md-3">
+        <div class="content_footercms_right">
+          <div class="footer-contact">
+              <h3 class="footer" style="padding-left:40px;padding-top:15px;"><b><span style="color:black">Pharma</span><span style="color:red">Care</span></b></h3>
+              <h5 style="padding-left: 40px;padding-bottom: 5px;">BEST ONLINE STORE</h5>
+            <ul style ="list-style: none;" class="text-secondary">
+              <li>Mudakuzka</li>
+              <li>+91 9746623695</li>
+              <li>annelizabethleju@gmail.com</li>
+            </ul>
+            <div class="social_icon">
+              <ul>
+                <li><a href="#"><i class="fa fa-facebook text-secondary"></i></a></li>
+                <li><a href="#"><i class="fa fa-google text-secondary"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/anna-leju/"><i class="fa fa-linkedin text-secondary"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <h6 class="footer-title ">Quick Links</h6>
+        <ul style ="list-style: none;">
+          <li><a href="{% url 'user_home' %}" class="text-secondary">New Products</a></li>
+          <li><a href="{% url 'user_home' %}" class="text-secondary">Categorys</a></li>
+          <li><a href="{% url 'contact' %}" class="text-secondary">Contact Us</a></li>
+          <li><a href="{% url 'about' %}" class="text-secondary">About Us</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h6 class="footer-title">Categories</h6>
+        <ul style ="list-style: none;">
+          <li><a href="{% url 'cat2' %}" class="text-secondary">Covid Essentials</a></li>
+          <li><a href="{% url 'cat1' %}" class="text-secondary">Medicines</a></li>
+          <li><a href="{% url 'cat3' %}" class="text-secondary">Nutrition And Supplements</a></li>
+          <li><a href="{% url 'cat4' %}" class="text-secondary">Devices</a></li>
+          <li><a href="{% url 'cat5' %}" class="text-secondary">Mother & Baby</a></li>
+          <li><a href="{% url 'cat6' %}" class="text-secondary">Personal Care</a></li>
+        </ul>
+        </div>
+
+      <div class="col-md-3">
+        <h6 class="footer-title">My Account</h6>
+        <ul style ="list-style: none;">
+          <li><a href="{% url 'profile' %}" class="text-secondary">My Account</a></li>
+          <li><a href="{% url 'my_orders' %}" class="text-secondary">My Orders</a></li>
+          <li><a href="{% url 'my_cart' %}" class="text-secondary">My Cart</a></li>
+      </div>
+    </div>
+  <div class="footer-bottom ">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="copyright-part">@ 2021 All Rights Reserved PharmaCare</div>
+        </div>
+        <div class="col-sm-6">
+          <div class="payment-icon text-right">
+            <ul style ="list-style: none;">
+              <li><i class="fa fa-cc-paypal "></i></li>
+              <li><i class="fa fa-cc-stripe"></i></li>
+              <li><i class="fa fa-cc-visa"></i></li>
+              <li><i class="fa fa-cc-discover"></i></li>
+              <li><i class="fa fa-cc-mastercard"></i></li>
+              <li><i class="fa fa-cc-amex"></i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </footer>
+ </body>

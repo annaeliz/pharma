@@ -1,0 +1,44 @@
+{% extends 'user_navigation.html' %}
+{% load static %}
+{% block body %}
+<style>
+
+ label{
+	margin:0 0 3px 0;
+	padding-bottom:7px;
+  padding-top: 10px;
+	display:block;
+	font-weight: bold;
+}
+
+  .required{
+	color:red;
+    
+}
+ 
+</style>
+<br><br><br><br>
+<body >
+<div class="container col-sm-5"style="background-color:whitesmoke; height:400px">
+
+<form method="POST" >
+  {% csrf_token %}
+
+        <label>Email <span class="required">*</span></label>
+        <input type="email" class="form-control" placeholder="Enter Name" name="email" required>
+        <label>Mobile <span class="required">*</span></label>
+        <input type="text" class="form-control" placeholder="Enter Name" name="mobile" required>
+        <label>Shipment Address <span class="required">*</span></label>
+        <textarea class="form-control" name="add"required style="margin-bottom: 20px;"></textarea>
+        <input type="submit" class="btn btn-info mt-2 align-center"  value="Proceed To Pay">
+
+</form>
+
+
+</div>
+
+</body>
+
+{%  include 'footer.html' %}
+{% endblock %}
+

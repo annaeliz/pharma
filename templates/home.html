@@ -1,0 +1,142 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+<head>
+<style>
+    i:hover,.t1:hover {
+  color:orangered;
+
+  font-size: 90%;
+    }
+ 
+
+</style>
+
+<script>
+
+</script>
+</head>
+<div class="row">
+    <div class="col-sm-3">    
+        <img src="{% static './images/img37.jpg' %}" class="d-block w-100" style="height: 290px;" >
+            <div class="infomation mt-5">
+                  <h5 class="alert alert-secondary"><i class="fa fa-fw fa-truck "></i><span class="t1">FREE SHIPPING</span><p class="text-secondary" style="margin-left: 25px;">Free delivery</p></h5>
+                  <h5 class="alert alert-secondary"><i class="fa fa-fw fa-phone"></i><span class="t1">ORDER ONLINE</span><p class="text-secondary" style="margin-left: 25px;">Hours : 8am- 11 pm</p></h5>
+                  <h5 class="alert alert-secondary"><i class="fa fa-fw fa-shopping-basket"></i><span class="t1">SHOP AND SAVE</span><p class="text-secondary" style="margin-left: 25px;">Healthy Shopping</p></h5>              
+                  <h5 class="alert alert-secondary"><i class="fa fa-fw fa-shopping-bag"></i><span class="t1">SAFE SHOPPING</span><p class="text-secondary" style="margin-left: 25px;">Ensure genuine 100%</p></h5>              
+            </div>
+        </div>
+    <div id="test" class="carousel slide col-sm-9" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li data-target="#test" data-slide-to="0" class="active"></li>  
+          <li data-target="#test" data-slide-to="1"></li>
+          <li data-target="#test" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active img-fluid">
+                <img src="{% static './images/img48.jpg' %}" class="d-block w-100"  >
+                <div class="carousel-caption">
+                <p class="welcome">EFFECTIVE MEDICINE, NEW MEDICINE EVERYDAY</p>
+                <h1 class="welcome">WELCOME TO PHARMACARE</h1>
+            </div>
+            </div>
+            <div class="carousel-item img-fluid">
+              <img src="{% static './images/img1.jpg' %}" class="d-block w-100 ">
+              <div class="carousel-caption">
+                <p class="welcome">EFFECTIVE MEDICINE, NEW MEDICINE EVERYDAY</p>
+                <h1 class="welcome">WELCOME TO PHARMACARE</h1>
+                </div>
+            </div>
+            <div class="carousel-item img-fluid">
+                <img src="{% static './images/img38.jpg' %}" class="d-block w-100">
+                <div class="carousel-caption">
+                    <p class="welcome">EFFECTIVE MEDICINE, NEW MEDICINE EVERYDAY</p>
+                    <h1 class="welcome">WELCOME TO PHARMACARE</h1>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div> 
+<div class="row">
+    <div class="col-md-3">
+        <h2>Top <b>Brands</b></h2>
+    </div>
+    <div class="col-md-9">
+        <h2>Latest <b>Products</b></h2>	
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3"> 
+        <div id="test" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                
+                <div class="carousel-item active img-fluid">
+                    <div class="thumb-wrapper" >
+                    
+                    <img src="{% static './images/img28.jpg' %}" class="d-block w-100"  >
+                
+                </div>
+                </div>
+                <div class="carousel-item  img-fluid">
+                    <div class="thumb-wrapper">
+                    
+                    <img src="{% static './images/img101.jpg' %}" class="d-block w-100"  >
+                
+                    </div>
+                </div>
+                <div class="carousel-item  img-fluid">
+                    <div class="thumb-wrapper">
+                    
+                    <img src="{% static './images/img33.jpg' %}" class="d-block w-100"  >
+                
+                    </div>
+                </div>
+                </div>
+            	
+                <a class="carousel-control-prev" href="#test" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+                <a class="carousel-control-next" href="#test" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+        </div>
+    </div>	
+
+
+    {%if product %}
+<div class="col-md-9">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">   
+        <div class="carousel-inner">
+        <div class="item carousel-item active">
+        <div class="row">
+            
+    {% for p in product %}
+            <div class="col-sm-3">
+                <div class="thumb-wrapper">
+                    <div class="img-box">
+                        <img src="{{p.productimage.url}}" class="img-responsive img-fluid" alt="">
+                    </div>
+                    <div class="thumb-content">
+                        <h5>{{p.productname}}</h5>
+                        <p class="item-price">₹{{p.productprice}}</p>
+                 
+                    </div>						
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:"4" %}
+            </div>
+            </div>
+            </div>
+        </div>   
+        {% endif %}
+
+{% endfor %}
+</div> 
+</div>
+
+{%else%}
+<div class="col-md-9">
+
+<h2 class="text-center" style="padding: 70px;">Lastest Product shows  while adding</h2>
+
+</div>
+{% endif %}
+
+{%  include 'footer.html' %}
+{% endblock %}
